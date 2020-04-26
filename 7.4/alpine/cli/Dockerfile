@@ -1,7 +1,10 @@
 FROM php:7.4-cli-alpine
 
+# bash
+RUN apk add --update --no-cache bash
+
 # gmp
-RUN apk add --update --no-cache gmp gmp-dev \
+RUN apk add --update --no-cache gmp-dev \
     && docker-php-ext-install gmp
 
 # mysqli, pdo, pdo_mysql, pdo_pgsql
@@ -10,7 +13,7 @@ RUN apk add --update --no-cache postgresql-dev \
 
 # zip
 RUN apk add --update --no-cache libzip-dev \
-    && docker-php-ext-configure zip --with-libzip=/usr/include \
+    && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
 # exif
@@ -21,4 +24,14 @@ RUN apk add --update --no-cache exiftool \
 RUN apk add --update --no-cache build-base imagemagick-dev php7-pecl-imagick autoconf \
     && echo "" | pecl install imagick \
     && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
+
+# intl
+RUN apk add --update --no-cache icu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
+
+# gd
+RUN apk add --update --no-cache libpng-dev \
+    && docker-php-ext-configure gd \
+    && docker-php-ext-install gd
 
