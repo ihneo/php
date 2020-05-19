@@ -33,6 +33,9 @@ docker pull ihneo/php:<dockertag>
 -	[`7.1-cli-alpine`](https://github.com/ihneo/php/blob/master/7.1/alpine/cli/Dockerfile)
 -	[`7.3-cli-alpine`](https://github.com/ihneo/php/blob/master/7.3/alpine/cli/Dockerfile)
 -	[`7.4-cli-alpine`, `latest`](https://github.com/ihneo/php/blob/master/7.4/alpine/cli/Dockerfile)
+-	[`7.1-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.1/alpine/fpm/Dockerfile)
+-	[`7.3-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.3/alpine/fpm/Dockerfile)
+-	[`7.4-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.4/alpine/fpm/Dockerfile)
 
 ## Example of usage with the images available at Dockerhub
 ```
