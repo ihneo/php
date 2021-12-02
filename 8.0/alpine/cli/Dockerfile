@@ -21,9 +21,9 @@ RUN apk add --update --no-cache exiftool \
     && docker-php-ext-install exif
 
 # imagick
-#RUN apk add --update --no-cache build-base autoconf imagemagick imagemagick-dev \
-#    && pecl install imagick \
-#    && docker-php-ext-enable imagick
+RUN apk add --update --no-cache build-base autoconf imagemagick imagemagick-dev \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 #RUN apk add --update --no-cache autoconf g++ imagemagick-dev libtool make pcre-dev \
 #    && pecl install imagick \
@@ -39,4 +39,11 @@ RUN apk add --update --no-cache icu-dev \
 RUN apk add --update --no-cache libpng-dev \
     && docker-php-ext-configure gd \
     && docker-php-ext-install gd
+
+# git client
+RUN apk add --update --no-cache git
+
+# composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --1 --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --2 --filename=composer2
 
