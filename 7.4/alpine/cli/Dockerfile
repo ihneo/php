@@ -35,3 +35,10 @@ RUN apk add --update --no-cache libpng-dev \
     && docker-php-ext-configure gd \
     && docker-php-ext-install gd
 
+# git client
+RUN apk add --update --no-cache git
+
+# composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --1 --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --2 --filename=composer2
+
