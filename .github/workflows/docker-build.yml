@@ -4,15 +4,14 @@ on:
   push:
     branches:
       - master
-      - feat/gha-matrix
+      #- feat/gha-matrix
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        #phpversion: [ "7.1", "7.2", "7.4", "8.0", "8.1" ]
-        phpversion: [ "8.0", "8.1" ]
+        phpversion: [ "7.1", "7.2", "7.4", "8.0", "8.1" ]
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
@@ -22,9 +21,6 @@ jobs:
             latest: true
 
     steps:
-      - name: Echo details
-        run: echo ${{ matrix.phpversion }} - ${{ matrix.execenv }} - ${{ matrix.os }} - ${{ matrix.latest }}
-
       - name: Checkout
         uses: actions/checkout@v2
 
