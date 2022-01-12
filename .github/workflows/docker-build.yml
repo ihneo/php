@@ -34,6 +34,4 @@ jobs:
           if [[ ${{ matrix.latest }} ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
-
-          # Set output parameters.
-          echo ::set-output name=tags::${TAGS}
+          echo ${TAGS}
