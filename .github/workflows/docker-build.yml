@@ -16,6 +16,7 @@ jobs:
         os: [ alpine ]
         include:
           - phpversion: 8.1
+          - execenv: cli
             tag: latest
     steps:
       - name: Echo details
