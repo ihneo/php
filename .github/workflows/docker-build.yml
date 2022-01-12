@@ -16,8 +16,8 @@ jobs:
         os: [ alpine ]
         include:
           - phpversion: 8.1
-          - execenv: cli
-          - os: alpine
+            execenv: cli
+            os: alpine
             latest: true
 
     steps:
