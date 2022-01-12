@@ -1,5 +1,4 @@
 # PHP
-ee
 PHP Dockerfiles with additional libraries (mainly for our needs)
 
 ## Example of Usage

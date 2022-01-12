@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      #- feat/gha-matrix
+      - feat/gha-matrix
 
 jobs:
   docker:
