@@ -17,7 +17,23 @@ jobs:
         include:
           - phpversion: 8.1
           - execenv: cli
-            tag: latest
+          - os: alpine
+            latest: true
+
     steps:
       - name: Echo details
-        run: echo ${{ matrix.phpversion }} - ${{ matrix.execenv }} - ${{ matrix.os }} - ${{ matrix.tag }}
+        run: echo ${{ matrix.phpversion }} - ${{ matrix.execenv }} - ${{ matrix.os }} - ${{ matrix.latest }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare
+        id: prep
+        run: |
+          TAGS="${GITHUB_REPOSITORY}:${{ matrix.phpversion }}-${{ matrix.execenv }}-${{ matrix.os }}"
+          if [[ ${{ matrix.latest }} ]]; then
+            TAGS=join([$TAGS,"${GITHUB_REPOSITORY}:latest"])
+          fi
+
+          # Set output parameters.
+          echo ::set-output name=tags::${TAGS}
