@@ -1,0 +1,22 @@
+name: docker-build
+
+on:
+  push:
+    branches:
+      - master
+      - feat/gha-matrix
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        phpversion: [ 8.0, 8.1 ]
+        execenv: [ cli, fpm ]
+        os: [ alpine ]
+        include:
+          - phpversion: 8.1
+            tag: latest
+    steps:
+      - name: Echo details
+        run: echo ${{ matrix.phpversion }} - ${{ matrix.execenv }} - ${{ matrix.os }} - ${{ matrix.tag }}
