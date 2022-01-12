@@ -31,7 +31,7 @@ jobs:
         id: prep
         run: |
           TAGS="${GITHUB_REPOSITORY}:${{ matrix.phpversion }}-${{ matrix.execenv }}-${{ matrix.os }}"
-          if [[ "${{ matrix.latest }}" == true ]]; then
+          if [[ "${{ matrix.latest }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
           echo ${TAGS}
