@@ -32,7 +32,7 @@ jobs:
         run: |
           TAGS="${GITHUB_REPOSITORY}:${{ matrix.phpversion }}-${{ matrix.execenv }}-${{ matrix.os }}"
           if [[ ${{ matrix.latest }} ]]; then
-            TAGS=${{join( [ "${TAGS}", "${GITHUB_REPOSITORY}:latest" ] )}}
+            TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
 
           # Set output parameters.
