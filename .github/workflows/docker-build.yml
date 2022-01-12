@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        phpversion: [ 8.0, 8.1 ]
-        execenv: [ cli, fpm ]
+        phpversion: [ "8.0", "8.1" ]
+        execenv: [ cli ]
         os: [ alpine ]
         include:
           - phpversion: 8.1
