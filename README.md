@@ -21,11 +21,11 @@ docker run --rm --interactive --tty \
 ```
 
 ## Dockerhub
-All images are available at : https://hub.docker.com/r/nalscher/php
+All images are available at : https://hub.docker.com/r/ihneo/php
 
 You can pull all images with the command :
 ```
-docker pull nalscher/php:<dockertag>
+docker pull ihneo/php:<dockertag>
 ```
 
 ## Supported tags and respective `Dockerfile` links
@@ -50,7 +50,7 @@ docker run --rm --interactive --tty \
   --workdir /usr/src/myapp \
   --volume $PWD:/usr/src/myapp \
   --user $(id -u):$(id -g) \
-  nalscher/php:<dockertag> php "$@"
+  ihneo/php:<dockertag> php "$@"
 ```
 
 ## Composer
@@ -71,5 +71,5 @@ docker run --rm --interactive --tty \
   --volume ${COMPOSER_HOME:-$HOME/.config/composer}:/tmp/composer/config \
   --volume ${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}:/tmp/composer/cache \
   --user $(id -u):$(id -g) \
-  nalscher/php:<dockertag> composer "$@"
+  ihneo/php:<dockertag> composer "$@"
 ```
