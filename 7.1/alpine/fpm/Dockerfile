@@ -33,7 +33,7 @@ RUN apk add --update --no-cache icu-dev \
 # gd
 RUN apk add --update --no-cache libpng-dev \
     && docker-php-ext-configure gd \
-    && docker-php-ext-install gd \
+    && docker-php-ext-install gd
 
 # bcmath
 RUN apk add --update --no-cache php7-bcmath \
