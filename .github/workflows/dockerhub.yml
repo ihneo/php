@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        #phpversion: [ "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
-        phpversion: [ "7.3", "7.4", "8.0", "8.1" ]
+        phpversion: [ "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
