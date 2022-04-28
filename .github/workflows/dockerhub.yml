@@ -34,7 +34,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          TAGS="${GITHUB_REPOSITORY}:${{ ${{ github.event.inputs.phpver }} }}-${{ matrix.execenv }}-${{ matrix.os }}"
+          TAGS="${GITHUB_REPOSITORY}:${{ github.event.inputs.phpver }}-${{ matrix.execenv }}-${{ matrix.os }}"
           if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.taglateston }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
