@@ -3,29 +3,25 @@ name: Publish Docker image
 on:
   workflow_dispatch:
     inputs:
-      phpversion:
+      phpver:
         description: 'Version de php'
         type: choice
         required: true
         options:
           - "8.1"
+          - "8.0"
           - "7.4"
           - "7.3"
           - "7.2"
           - "7.1"
-      execenv:
-        description: 'CLI ou FPM'
-        type: choice
-        required: true
-        options:
-          - "cli"
-          - "fpm"
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        phpversion : ${{ github.event.inputs.phpver }}
+        execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
           - phpversion: 8.1
@@ -40,7 +36,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          TAGS="${GITHUB_REPOSITORY}:${{ github.event.inputs.phpversion }}-${{ github.event.inputs.execenv }}-${{ matrix.os }}"
+          TAGS="${GITHUB_REPOSITORY}:${{ matrix.phpversion }}-${{ matrix.execenv }}-${{ matrix.os }}"
           if [[ "${{ matrix.latest }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
