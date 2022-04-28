@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        phpversion : ${{ github.event.inputs.phpver }}
+        phpversion: [ ${{ github.event.inputs.phpver }} ]
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
