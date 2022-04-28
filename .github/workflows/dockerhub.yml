@@ -1,16 +1,26 @@
 name: Publish Docker image
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      phpver:
+        description: 'Version de php'
+        type: choice
+        required: true
+        options:
+          - "8.1"
+          - "8.0"
+          - "7.4"
+          - "7.3"
+          - "7.2"
+          - "7.1"
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        phpversion: [ "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
+        phpversion : ${{ github.event.inputs.phpver }}
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
