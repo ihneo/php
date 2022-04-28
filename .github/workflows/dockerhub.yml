@@ -25,7 +25,7 @@ jobs:
         include:
           - execenv: cli
             os: alpine
-            taglateston: 8.1
+            tag_latest_on: 8.1  # This value is add only when we are in job cli-alpine
 
     steps:
       - name: Checkout
@@ -35,7 +35,7 @@ jobs:
         id: prep
         run: |
           TAGS="${GITHUB_REPOSITORY}:${{ github.event.inputs.phpver }}-${{ matrix.execenv }}-${{ matrix.os }}"
-          if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.taglateston }}" ]]; then
+          if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.tag_latest_on }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
           echo ::set-output name=tags::${TAGS}
