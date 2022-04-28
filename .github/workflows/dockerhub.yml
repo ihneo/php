@@ -8,19 +8,19 @@ on:
         type: choice
         required: true
         options:
-          - "8.1"
-          - "8.0"
-          - "7.4"
-          - "7.3"
-          - "7.2"
-          - "7.1"
+          - 8.1
+          - 8.0
+          - 7.4
+          - 7.3
+          - 7.2
+          - 7.1
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        phpversion: [ ${{ github.event.inputs.phpver }} ]
+        phpversion: ${{ github.event.inputs.phpver }}
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
