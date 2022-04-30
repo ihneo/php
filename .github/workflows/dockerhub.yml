@@ -8,26 +8,24 @@ on:
         type: choice
         required: true
         options:
-          - "8.1"
-          - "8.0"
-          - "7.4"
-          - "7.3"
-          - "7.2"
-          - "7.1"
+          - '8.1'
+          - '8.0'
+          - '7.4'
+          - '7.3'
+          - '7.2'
+          - '7.1'
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        phpversion : ${{ github.event.inputs.phpver }}
         execenv: [ cli, fpm ]
         os: [ alpine ]
         include:
-          - phpversion: 8.1
-            execenv: cli
+          - execenv: cli
             os: alpine
-            latest: true
+            tag_latest_on: 8.1  # This value is add only when we are in job cli-alpine
 
     steps:
       - name: Checkout
@@ -36,8 +34,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          TAGS="${GITHUB_REPOSITORY}:${{ matrix.phpversion }}-${{ matrix.execenv }}-${{ matrix.os }}"
-          if [[ "${{ matrix.latest }}" ]]; then
+          TAGS="${GITHUB_REPOSITORY}:${{ github.event.inputs.phpver }}-${{ matrix.execenv }}-${{ matrix.os }}"
+          if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.tag_latest_on }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
           echo ::set-output name=tags::${TAGS}
@@ -61,7 +59,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ./${{ matrix.phpversion }}/${{ matrix.os }}/${{ matrix.execenv }}
+          context: ./${{ github.event.inputs.phpver }}/${{ matrix.os }}/${{ matrix.execenv }}
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.prep.outputs.tags }}
