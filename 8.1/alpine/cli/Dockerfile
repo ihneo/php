@@ -41,7 +41,7 @@ RUN apk add --update --no-cache libpng-dev \
     && docker-php-ext-install gd
 
 # bcmath
-RUN apk add --update --no-cache php8-bcmath \
+RUN apk add --update --no-cache php81-bcmath \
     && docker-php-ext-configure bcmath \
     && docker-php-ext-install bcmath
 
