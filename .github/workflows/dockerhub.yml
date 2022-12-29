@@ -38,7 +38,7 @@ jobs:
           if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.tag_latest_on }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
-          echo ::set-output name=tags::${TAGS}
+          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
