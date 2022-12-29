@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Prepare
         id: prep
@@ -39,25 +39,25 @@ jobs:
           if [[ "${{ github.event.inputs.phpver }}" == "${{ matrix.tag_latest_on }}" ]]; then
             TAGS="${TAGS},${GITHUB_REPOSITORY}:latest"
           fi
-          echo ::set-output name=tags::${TAGS}
+          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@master
+        uses: docker/setup-qemu-action@v2
         with:
           platforms: all
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@master
+        uses: docker/setup-buildx-action@v2
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./${{ github.event.inputs.phpver }}/${{ matrix.os }}/${{ matrix.execenv }}
