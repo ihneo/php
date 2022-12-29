@@ -21,9 +21,13 @@ RUN apk add --update --no-cache exiftool \
     && docker-php-ext-install exif
 
 # imagick
-RUN apk add --update --no-cache build-base imagemagick-dev php7-pecl-imagick autoconf \
-    && echo "" | pecl install imagick \
-    && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
+RUN apk add --update --no-cache build-base autoconf imagemagick imagemagick-dev \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
+
+#RUN apk add --update --no-cache build-base imagemagick-dev php7-pecl-imagick autoconf \
+#    && echo "" | pecl install imagick \
+#    && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
 
 # intl
 RUN apk add --update --no-cache icu-dev \
@@ -36,7 +40,7 @@ RUN apk add --update --no-cache libpng-dev \
     && docker-php-ext-install gd
 
 # bcmath
-RUN apk add --update --no-cache php7-bcmath \
+RUN apk add --update --no-cache php-bcmath \
     && docker-php-ext-configure bcmath \
     && docker-php-ext-install bcmath
 
