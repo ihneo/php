@@ -26,7 +26,7 @@ jobs:
         include:
           - execenv: cli
             os: alpine
-            tag_latest_on: 8.1  # This value is add only when we are in job cli-alpine
+            tag_latest_on: 8.2  # This value is add only when we are in job cli-alpine
 
     steps:
       - name: Checkout
