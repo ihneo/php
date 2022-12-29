@@ -43,7 +43,7 @@ docker pull ihneo/php:<dockertag>
 -	[`7.4-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.4/alpine/fpm/Dockerfile)
 -	[`8.0-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.0/alpine/fpm/Dockerfile)
 -	[`8.1-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.1/alpine/fpm/Dockerfile)
--	[`8.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.1/alpine/fpm/Dockerfile)
+-	[`8.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.2/alpine/fpm/Dockerfile)
 
 ## Example of usage with the images available at Dockerhub
 ```
