@@ -36,7 +36,8 @@ docker pull ihneo/php:<dockertag>
 -	[`7.4-cli-alpine`](https://github.com/ihneo/php/blob/master/7.4/alpine/cli/Dockerfile)
 -	[`8.0-cli-alpine`](https://github.com/ihneo/php/blob/master/8.0/alpine/cli/Dockerfile)
 -	[`8.1-cli-alpine`](https://github.com/ihneo/php/blob/master/8.1/alpine/cli/Dockerfile)
--	[`8.2-cli-alpine`, `latest`](https://github.com/ihneo/php/blob/master/8.2/alpine/cli/Dockerfile)
+-	[`8.2-cli-alpine`](https://github.com/ihneo/php/blob/master/8.2/alpine/cli/Dockerfile)
+-	[`8.3-cli-alpine`, `latest`](https://github.com/ihneo/php/blob/master/8.3/alpine/cli/Dockerfile)
 -	[`7.1-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.1/alpine/fpm/Dockerfile)
 -	[`7.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.2/alpine/fpm/Dockerfile)
 -	[`7.3-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.3/alpine/fpm/Dockerfile)
@@ -44,6 +45,7 @@ docker pull ihneo/php:<dockertag>
 -	[`8.0-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.0/alpine/fpm/Dockerfile)
 -	[`8.1-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.1/alpine/fpm/Dockerfile)
 -	[`8.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.2/alpine/fpm/Dockerfile)
+-	[`8.3-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.3/alpine/fpm/Dockerfile)
 
 ## Example of usage with the images available at Dockerhub
 ```
