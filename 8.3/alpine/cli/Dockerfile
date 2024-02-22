@@ -20,15 +20,10 @@ RUN apk add --update --no-cache libzip-dev \
 RUN apk add --update --no-cache exiftool \
     && docker-php-ext-install exif
 
-# imagick
-RUN apk add --update --no-cache build-base autoconf imagemagick imagemagick-dev \
-    && pecl install imagick \
-    && docker-php-ext-enable imagick
-
-#RUN apk add --update --no-cache autoconf g++ imagemagick-dev libtool make pcre-dev \
+# imagick https://github.com/Imagick/imagick/issues/640
+# RUN apk add --update --no-cache build-base autoconf imagemagick imagemagick-dev \
 #    && pecl install imagick \
-#    && docker-php-ext-enable imagick \
-#    && apk del autoconf g++ libtool make pcre-dev
+#    && docker-php-ext-enable imagick
 
 # intl
 RUN apk add --update --no-cache icu-dev \
