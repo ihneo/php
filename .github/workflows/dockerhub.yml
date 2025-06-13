@@ -8,10 +8,10 @@ on:
         type: choice
         required: true
         options:
+          - '8.4'
           - '8.3'
           - '8.2'
           - '8.1'
-          - '8.0'
 
 jobs:
   docker:
@@ -23,7 +23,7 @@ jobs:
         include:
           - execenv: cli
             os: alpine
-            tag_latest_on: 8.3  # This value is add only when we are in job cli-alpine
+            tag_latest_on: 8.4  # This value is add only when we are in job cli-alpine
 
     steps:
       - name: Checkout
