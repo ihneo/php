@@ -38,7 +38,8 @@ docker pull ihneo/php:<dockertag>
 -	[`8.1-cli-alpine`](https://github.com/ihneo/php/blob/master/8.1/alpine/cli/Dockerfile)
 -	[`8.2-cli-alpine`](https://github.com/ihneo/php/blob/master/8.2/alpine/cli/Dockerfile)
 -	[`8.3-cli-alpine`](https://github.com/ihneo/php/blob/master/8.3/alpine/cli/Dockerfile)
--	[`8.4-cli-alpine`, `latest`](https://github.com/ihneo/php/blob/master/8.4/alpine/cli/Dockerfile)
+-	[`8.4-cli-alpine`](https://github.com/ihneo/php/blob/master/8.4/alpine/cli/Dockerfile)
+-	[`8.5-cli-alpine`, `latest`](https://github.com/ihneo/php/blob/master/8.5/alpine/cli/Dockerfile)
 -	[`7.1-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.1/alpine/fpm/Dockerfile)
 -	[`7.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.2/alpine/fpm/Dockerfile)
 -	[`7.3-fpm-alpine`](https://github.com/ihneo/php/blob/master/7.3/alpine/fpm/Dockerfile)
@@ -48,6 +49,7 @@ docker pull ihneo/php:<dockertag>
 -	[`8.2-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.2/alpine/fpm/Dockerfile)
 -	[`8.3-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.3/alpine/fpm/Dockerfile)
 -	[`8.4-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.4/alpine/fpm/Dockerfile)
+-	[`8.5-fpm-alpine`](https://github.com/ihneo/php/blob/master/8.5/alpine/fpm/Dockerfile)
 
 ## Example of usage with the images available at Dockerhub
 ```
@@ -61,10 +63,6 @@ docker run --rm --interactive --tty \
 
 ## Composer
 Composer is also available in all images
-
-To use composer in version 1, command is `composer`
-
-To use composer in version 2, command is `composer2`
 
 An example to use the docker image as a composer binary :
 ```
